@@ -27,12 +27,12 @@
                         <a routerLink="/freelisting" (click)="setVisible(false)"><button class="listing-btn">Free Listing</button></a>
                         <div>
                             <app-login #loginComponent></app-login>
-                            <a routerLink="/login" (click)="loginComponent.openModal()" class="login-link">Log In / </a><span> <a routerLink="/signup" (click)="SignupComponent.openModal()" class="login-link">Sign Up</a></span>
+                            <a (click)="loginComponent.openModal()" class="login-link">Log In / </a><span> <a (click)="SignupComponent.openModal()" class="login-link">Sign Up</a></span>
                             <app-signup #SignupComponent></app-signup>
                         </div>
                     </div>
                 </nav>
-                <!-- <div class="body">
+                <div class="body">
                     <div *ngIf="isStaticVisible" class="body-container">
                         <div class="bottom-container">
                             <ngb-carousel [interval]="2000" [pauseOnHover]="false" class="custom-carousel">
@@ -79,12 +79,12 @@
                     <div *ngIf="!isStaticVisible">
                         <router-outlet></router-outlet>
                     </div>
-                </div> -->
+                </div>
 
                 <!-- <app-select-category></app-select-category> -->
                 <!-- <router-outlet></router-outlet>
 <app-freelancer-contact-details></app-freelancer-contact-details> -->
-                <app-book-slot></app-book-slot>
+                <!-- <app-book-slot></app-book-slot> -->
                 <!-- <app-choose-lister></app-choose-lister> -->
             </body>
         </html>
