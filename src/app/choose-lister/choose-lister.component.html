@@ -1,0 +1,28 @@
+<div class="text-center">
+
+    <!-- Show the Choose Lister section only if isSaved is false -->
+    <div *ngIf="!isSaved">
+      <h3 class="text-lg font-semibold mt-5 mb-5">Choose Lister or Stylist</h3>
+  
+      <div class="bussiness-freelancer">
+        <div>
+          <label class="option-label">
+            <span class="text-lg font-semibold">Business Lister</span>
+            <input type="radio" [(ngModel)]="selectedOption" value="business" name="lister" class="form-radio text-purple-500" />
+          </label>
+          <label class="option-label">
+            <span class="text-lg font-semibold">Stylist</span>
+            <input type="radio" [(ngModel)]="selectedOption" value="freelancer" name="lister" class="form-radio text-purple-500" />
+          </label>
+        </div>
+      </div>
+  
+      <button class="save-button" (click)="onSave()">Save and Continue</button>
+    </div>
+  
+    <!-- Conditionally render components based on selected option and after Save is clicked -->
+    <app-contact-details-form *ngIf="isSaved && selectedOption === 'business'"></app-contact-details-form>
+    <app-freelancer-contact-details *ngIf="isSaved && selectedOption === 'freelancer'"></app-freelancer-contact-details>
+  
+  </div>
+  

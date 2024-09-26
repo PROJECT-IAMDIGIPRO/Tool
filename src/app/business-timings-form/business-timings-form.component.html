@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-end">
+    <div class="form-container">
+        <h1>Add Business Timings</h1>
+        <p>Let your customers know when you are open for business</p>
+    
+        <form [formGroup]="businessTimingsForm" (ngSubmit)="onSubmit()">
+    
+        <!-- Days of the week -->
+        <div class="days-container">
+            <label>Select Days of the Week</label>
+            <div class="days">
+            <!-- <div  class="day">
+                <input type="checkbox" [formControlName]="day.value" /> {{ day.label }}
+            </div> -->
+              <div *ngFor="let day of daysOfWeek" class="day">
+                <input type="checkbox" id="monday" name="monday" [formControlName]="day.value" />
+                <label for="monday" >{{ day.label }}</label>
+              </div>
+            </div>
+            <input type="checkbox" (change)="selectAllDays($event)" /> Select All Days
+        </div>
+    
+        <!-- Time Slots -->
+        <div formArrayName="timeSlots" *ngFor="let slot of timeSlots.controls; let i = index" [formGroupName]="i">
+            <div class="time-slot">
+                <input type="time" formControlName="openTime" name="time" id="time" placeholder=" "/>
+                <label for="time">Open at</label>
+                <input type="time" formControlName="closeTime" />
+                <label>Close at</label>
+            </div>
+        </div>
+    
+        <!-- Add another time slot -->
+        <!-- <button type="button" (click)="addTimeSlot()">+ Add Another Time Slot</button>
+    -->
+        <!-- Submit button -->
+        <button type="submit" class="submit-btn">Save and Continue</button>
+        </form>
+    </div>
+</div>

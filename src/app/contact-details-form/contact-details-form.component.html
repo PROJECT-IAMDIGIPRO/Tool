@@ -1,0 +1,71 @@
+<div class="stepper">
+  <div>
+      <button class="circle active"><span>1</span>Contact Details</button>
+  </div>
+  <div class="line"></div>
+  <div>
+    <button class="circle"><span>2</span>Business Details</button>
+  </div>
+  <div class="line"></div>
+  <div>
+    <button class="circle"><span>3</span>List Services</button>
+  </div>
+</div>
+
+
+<div class="d-flex justify-content-center">
+    <div class="form-container">
+      <h4 class="mb-3">Add Contact Details</h4>
+      <div action="#" method="POST">
+        <div class="d-flex flex-row justify-content-between">
+          <!-- <label for="title">Title</label> -->
+          <select id="title" formControlName="title" style="width: 20%;">
+            <option value="Mr">Mr</option>
+            <option value="Ms">Ms</option>
+            <option value="Mrs">Mrs</option>
+          </select>
+          <div class="form-group" style="width: 78%">
+              <input type="text" id="Person" name="Person" required placeholder=" ">
+              <label for="Person">Contact Person</label>
+          </div>
+        </div>
+        <div class="d-flex flex-row justify-content-between">
+          <div class="country-code">
+            <img src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" alt="India Flag" class="flag">
+            <span class="code">+91</span>
+          </div>
+          <div class="form-group" style="width: 78%">
+              <input type="text" id="Mobile" name="Mobile" placeholder=" ">
+              <label for="Mobile">Mobile Number</label>
+          </div>
+        </div>
+        <div class="d-flex flex-row justify-content-between">
+            <div class="country-code">
+              <img src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" alt="India Flag" class="flag">
+              <span class="code">+91</span>
+            </div>
+            <div class="form-group" style="width: 78%">
+                <input type="text" id="whatsApp" name="whatsApp" placeholder=" ">
+                <label for="whatsApp">WhatsApp Number</label>
+            </div>
+        </div>
+          <div class="form-group">
+              <input type="text" id="Email" name="Email" placeholder=" ">
+              <label for="Email">Email</label>
+          </div>
+          <div class="form-group">
+            <input type="password" id="password" name="password" placeholder=" ">
+            <label for="password">Password</label>
+          </div>
+          <div class="form-group">
+            <input type="password" id="cPassword" name="cPassword" placeholder=" ">
+            <label for="cPassword">Confirm Password</label>
+          </div>
+          <div class="form-group">
+            <input type="text" id="referralCode" name="referralCode" placeholder=" ">
+            <label for="referralCode">Referral Code</label>
+          </div>
+          <button type="submit" class="submit-btn" routerLink="/businessDetailsForm">Save and Continue</button>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+</head>
+<body>
+    <div class="modal" tabindex="-1" [ngClass]="{ 'show': isModalVisible }" *ngIf="isModalVisible">
+        <div class="modal-dialog">
+          <div class="modal-content animated-popup">
+            <!-- Close button -->
+            <div class="form-box">
+                <span class="close-btn" (click)="closeModal()">&times;</span>
+                <h2>Sign Up</h2>
+                <form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
+                    <div class="input-box">
+                        <fa-icon [icon]="faUser"></fa-icon>
+                        <input type="tel" name="tel" ngModel required>
+                        <label>Phone Number</label>
+                    </div>
+                    <div class="input-box">
+                        <fa-icon [icon]="faEnvelope"></fa-icon>
+                        <input type="email" name="email" ngModel required>
+                        <label>Email</label>
+                    </div>
+                    <div class="input-box">
+                        <fa-icon [icon]="faLock"></fa-icon>
+                        <input type="password" name="password" ngModel required>
+                        <label>Password</label>
+                    </div>
+                    <div class="terms">
+                        <input type="checkbox" id="agree" name="agree" ngModel required>
+                        <label for="agree">I read and agree to <a href="#">Terms & Conditions</a></label>
+                    </div>
+                    <button type="submit" class="btn">Create Account</button>
+                    <p class="signin">Already have an account? <a routerLink="/login">Login</a></p>
+                </form>
+            </div>
+       
+          </div>
+        </div>
+      </div>
+</body>
+</html>

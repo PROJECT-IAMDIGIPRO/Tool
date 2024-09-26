@@ -1,0 +1,15 @@
+<div class="mobile-input-container">
+    <h1>List your Business <span style="color: var(--color-dark-violet-100);">for FREE</span></h1>
+      <div class="mobile-input-box">
+        <div class="con-code">
+          <img src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" alt="India Flag" class="flag">
+          <span class="code">+91</span>
+        </div>
+        <input type="text" placeholder="Enter Mobile no." class="mobile-input">
+        <button class="join-now-btn" (click)="openModal()">Join now</button>
+        <app-otp-popup *ngIf="showModal" (close)="closeModal()"></app-otp-popup>
+      </div>
+      <h4><fa-icon [icon]="faCircleCheck" class="check-icon"></fa-icon>Build Strong Brand Visibility</h4>
+      <h4><fa-icon [icon]="faCircleCheck" class="check-icon"></fa-icon>Engage with Users through Feedback and Support</h4>
+      <h4><fa-icon [icon]="faCircleCheck" class="check-icon"></fa-icon>Promote Salon Services with Customizable Listings</h4>
+</div>

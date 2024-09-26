@@ -1,0 +1,72 @@
+<div class="stepper">
+  <div>
+      <button routerLink="/contactDetailsForm" class="circle"><span>1</span>Contact Details</button>
+  </div>
+  <div class="line"></div>
+  <div>
+    <button class="circle active"><span>2</span>Business Details</button>
+  </div>
+  <div class="line"></div>
+  <div>
+    <button class="circle"><span>3</span>List Services</button>
+  </div>
+</div>    
+     
+    <div class="d-flex justify-content-center">
+
+        <div class="form-container">
+            <h4 class="mb-3">Enter Your Business Details</h4>
+            <div action="#" method="POST">
+              <div class="form-group">
+                <input type="text" id="business-name" name="business-name" required placeholder=" ">
+                <label for="business-name">Business Name</label>
+              </div>
+                  <!-- Pincode Field with (input) event -->   
+              <div class="form-group">
+                <input type="text" id="building" name="building" placeholder=" ">
+                <label for="building">Building Name / Floor</label>
+              </div>
+                  <!-- Pincode Field with (input) event -->
+              <div class="form-group">
+                <input type="text" id="pincode" name="pincode" [(ngModel)]="pincode" required placeholder=" " (input)="onSearch()">
+                <label for="pincode">Pincode</label>
+              </div>
+              <div class="form-group">
+                <input type="text" id="street" name="street" placeholder=" ">
+                <label for="street">Street / Colony Name</label>
+              </div>
+              <div class="form-group">
+                <input type="text" id="area" name="area" placeholder=" ">
+                <label for="area">Area</label>
+              </div>
+              <div class="d-flex flex-row justify-content-between">
+                <!-- Auto-filled fields -->
+                <div class="form-group" style="width: 49%;">
+                    <input type="text" id="city" name="city" [(ngModel)]="city" required placeholder=" ">
+                    <label for="city">Village / City</label>
+                </div>
+                <div class="form-group" style="width: 49%;">
+                    <input type="text" id="district" name="district" [(ngModel)]="district" required placeholder=" ">
+                    <label for="district">District</label>
+                </div>
+              </div>
+              <div class="d-flex flex-row justify-content-between">
+                    <!-- Auto-filled fields -->
+                <div class="form-group" style="width: 49%;">
+                    <input type="text" id="state" name="state" [(ngModel)]="state" required placeholder=" ">
+                    <label for="state">State</label>
+                </div>
+                <div class="form-group" style="width: 49%;">
+                    <input type="text" id="country" name="country" [(ngModel)]="country" required placeholder=" ">
+                    <label for="country">Country</label>
+                </div>
+              </div>
+              <button type="submit" routerLink="/selectCategory" class="submit-btn">Save and Continue</button>
+            </div>
+        </div>
+ 
+    </div>
+
+    
+     
+     

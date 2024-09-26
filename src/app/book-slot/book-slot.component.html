@@ -1,0 +1,96 @@
+<div id="overlay"></div>
+
+ 
+ 
+  <form action="" class="container booking" name="booking">
+    <div class="header">
+      <div>
+        <h2>TONY & GUY</h2>
+        <div class="icon"></div>
+        <p>Hyderbad Hitech city</p>
+      </div>
+    </div>
+   <div>
+    <div class="dates" data-type="none">
+      <div class="container calendar">
+        <div class="header">
+          <div class="icon arr prev" (click)="changeMonth(-1)"></div>
+          <div class="month">{{ currentMonth | date: 'MMMM yyyy' }}</div>
+          <div class="icon arr next" (click)="changeMonth(1)"></div>
+        </div>
+        <table>
+          <tr>
+            <th *ngFor="let day of days">{{ day }}</th>
+          </tr>
+          <tr *ngFor="let week of calendar">
+            <td *ngFor="let day of week"
+                [class.notCurMonth]="day < 1"
+                [class.curDay]="day === selectedDay && currentMonth.getMonth() === monthIndex"
+                [class.holiday]="isHoliday(day) && day > 0"
+                (click)="selectDay(day)">{{ day > 0 ? day : '' }}</td>
+          </tr>
+        </table>
+        <button class="button-big" id="add_event" (click)="confirmDate()">CONFIRM DATE</button>
+      </div>
+
+      <label for="checkin">Select Date</label>
+      <div class="input-text">
+      <input placeholder="04 June, 2001" type="text" id="checkin" [value]="checkinDate" readonly>
+      <div class="icon pop-up" (click)="openCalendar()"></div>
+      </div>
+ 
+      <label for="checkout">Select Time</label>
+      <div class="input-text time">
+        <select id="checkout" (change)="onTimeSlotChange($event)">
+          <option value="" disabled selected>Select Time</option>
+          <option *ngFor="let time of timeSlots" [value]="time">{{ time }}</option>
+        </select>
+      </div>
+    </div>
+   
+    <ul class="persons">
+      <li>
+        <label>Adults : &#8377; <a>499</a></label>
+        <div class="input-text">
+          <select name="adults">
+            <option value="1" selected="selected">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>  
+          </select>
+          <div class="icon"></div>
+        </div>
+      </li>
+      <li>
+        <label>Children : &#8377; <a>0</a></label>
+        <div class="input-text">
+          <select name="children">
+            <option value="0" selected="selected">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>  
+          </select>
+          <div class="icon"></div>
+        </div>
+      </li>
+      <li>
+        <label>Elders : &#8377; <a>0</a></label>
+        <div class="input-text">
+          <select name="children">
+            <option value="0" selected="selected">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>  
+          </select>
+          <div class="icon"></div>
+        </div>
+      </li>
+    </ul>
+ 
+    <button class="button-big">PAYMENT</button>
+    <button class="button-big">SEARCH FOR SALONS</button>
+  </div>
+  </form>
+ 

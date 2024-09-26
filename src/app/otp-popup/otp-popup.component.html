@@ -1,0 +1,31 @@
+<div class="modal">
+    <div class="modal-content animated-popup">
+      <div class="modal-header">
+        <h5 class="modal-title" id="otpModalLabel">OTP Verification</h5>
+        <span class="close-btn" (click)="closeModal()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>Please enter your verification code.</p>
+        <form [formGroup]="otpForm" (ngSubmit)="onSubmit()">
+        <div class="otp-inputs">
+          <input type="text" maxlength="1" class="otp-field" formControlName="otp1"
+          (keyup)="onInputChange($event, 'otp1')"/>
+          <input type="text" maxlength="1" class="otp-field" formControlName="otp2"
+          (keyup)="onInputChange($event, 'otp2')"/>
+          <input type="text" maxlength="1" class="otp-field" formControlName="otp3"
+          (keyup)="onInputChange($event, 'otp3')"/>
+          <input type="text" maxlength="1" class="otp-field" formControlName="otp4"
+          (keyup)="onInputChange($event, 'otp4')"/>
+          <input type="text" maxlength="1" class="otp-field" formControlName="otp5"
+          (keyup)="onInputChange($event, 'otp5')"/>
+          <input type="text" maxlength="1" class="otp-field" formControlName="otp6"
+          (keyup)="onInputChange($event, 'otp6')"/>
+        </div>
+        </form>
+        <a href="#" class="resend-link">Resend OTP</a>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" type="submit"  class="btn btn-primary btn-continue" routerLink="/chooseLister">Continue</button>
+      </div>
+    </div>
+</div>

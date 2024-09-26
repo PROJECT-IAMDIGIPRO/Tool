@@ -1,0 +1,138 @@
+ 
+  .days-container {
+    margin-bottom: 20px;
+  }
+  
+  .days {
+    margin-bottom: 15px;
+  }
+
+  .day {
+    display: inline-block;
+    margin: 10px;
+    position: relative;
+  }
+  
+  .day input {
+    display: none; /* Hide the default checkbox */
+  }
+  
+  .day label {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Makes it circular */
+    background-color: #e0e0e0; /* Background color for unselected */
+    color: black;
+    text-align: center;
+    line-height: 40px; /* Centers the text vertically */
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 2px solid #ccc;
+  }
+  
+  .day input:checked  {
+    background-color: #9d1de0; /* Background color when checked */
+    color: white; /* Change text color when checked */
+    border: 2px solid #9d1de0; /* Optional border change when checked */
+  }
+  
+  /* Optional hover effect */
+  .day label:hover {
+    background-color: #ddd;
+  }
+
+  
+  /* .day input[type="checkbox"]:not(:checked), 
+  input[type="checkbox"]:checked {
+    position: absolute;
+    left: -9999%;
+  }
+  
+  .day input[type="checkbox"] + label {
+    display: inline-block;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+    margin-bottom: 10px;
+  }
+  
+  .day input[type="checkbox"]:checked + label {
+    border: 1px solid white;
+    color: white;
+    background-color: black;
+  } */
+
+  .time-slot {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  button {
+    margin: 10px 0;
+  }
+
+  .form-container {
+    padding: 20px;
+    width: 500px;
+  }
+  
+  .time-slot input {
+    background-color: var(--color-bg-violet-200);
+    width: 49%;
+    padding: 12px 10px;
+    color: var(--color-white-400);
+    border: 1px solid var(--color-white-400);
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+  }
+  
+  .time-slot input:focus {
+    border: 2px solid var(--color-dark-violet-100);
+    color: var(--color-black-500);
+  }
+  
+  .time-slot label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    background-color: var(--color-bg-violet-200);
+    padding: 0 5px;
+    color: var(--color-white-400);
+    pointer-events: none;
+    transition: 0.3s;
+    font-size: 16px;  
+  }
+  
+  .time-slot input:focus + label,
+  .time-slot input:not(:placeholder-shown) + label {
+    top: -2px;
+    left: 10px;
+    font-size: 12px;
+    color: var(--color-dark-violet-100);
+    font-weight: 700;
+  }
+  
+  .submit-btn {
+    display: block;
+    width: 100%;
+    background-color: var(--color-dark-violet-100);
+    color: var(--color-white-100);
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .submit-btn:hover {
+    background-color: #4f2f7b;
+  }
+  
