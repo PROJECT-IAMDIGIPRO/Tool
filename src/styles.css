@@ -133,6 +133,10 @@ color: var(--color-dark-violet-100);
   background-color: var(--color-white-100);
   }
 
+  .placeholder {
+    color: var(--color-white-400);
+  }
+
   .submit-btn {
   display: block;
   width: 100%;
