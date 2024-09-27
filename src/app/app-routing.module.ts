@@ -13,9 +13,14 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { BusinessProfileComponent } from './business-profile/business-profile.component';
 import { ChooseListerComponent } from './choose-lister/choose-lister.component';
-
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { BookSlotComponent } from './book-slot/book-slot.component';
+import { BusinessCatogeryFormComponent } from './business-catogery-form/business-catogery-form.component';
+import { ListingComponent } from './listing/listing.component';
 const routes: Routes = [
   { path: 'freelisting', component: FreelistingComponent },
+  { path: 'listing' , component:ListingComponent},
+  { path: 'businessCatogeryForm',component:BusinessCatogeryFormComponent},
   { path: 'otpPopup', component: OtpPopupComponent },
   { path: 'businessDetailsForm', component: BusinessDetailsFormComponent },
   { path: 'contactDetailsForm', component: ContactDetailsFormComponent },
@@ -28,10 +33,13 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'businessProfile', component: BusinessProfileComponent },
   { path: 'chooseLister', component: ChooseListerComponent },
+  { path: 'selectCategory', component:SelectCategoryComponent},
+  { path: 'bookslot', component:BookSlotComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

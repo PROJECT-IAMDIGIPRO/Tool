@@ -1,92 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <!-- Bootstrap CSS -->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet" />
-
-        <!-- Bootstrap JS and Popper.js -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-    </head>
-
-    <body>
-        <!DOCTYPE html>
-        <html lang="en">
-            <head>
-                <!-- Bootstrap CSS -->
-                <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet" />
-                <!-- Bootstrap JS and Popper.js -->
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-            </head>
-            <body>
-                <nav class="navbar">
-                    <div class="logo"><a routerLink="/" (click)="setVisible(true)">TOOL</a></div>
-                    <div class="nav-links">
-                        <a routerLink="/freelisting" (click)="setVisible(false)"><button class="listing-btn">Free Listing</button></a>
-                        <div>
-                            <app-login #loginComponent></app-login>
-                            <a (click)="loginComponent.openModal()" class="login-link">Log In / </a><span> <a (click)="SignupComponent.openModal()" class="login-link">Sign Up</a></span>
-                            <app-signup #SignupComponent></app-signup>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <!-- Bootstrap CSS -->
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Bootstrap JS and Popper.js -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+   </head>
+   <body>
+      <!DOCTYPE html>
+      <html lang="en">
+         <head>
+            <!-- Bootstrap CSS -->
+            <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
+            <!-- Bootstrap JS and Popper.js -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+         </head>
+         <body>
+            <nav class="navbar">
+               <div class="logo"><a routerLink="/">TOOL</a> </div>
+               <div class="nav-links">
+                  <a routerLink="/freelisting"><button class="listing-btn">Free Listing</button></a> 
+                  <div>
+                     <app-login #loginComponent></app-login>
+                     <a (click)="loginComponent.openModal()" class="login-link">Log In / </a><span>
+                     <a (click)="SignupComponent.openModal()" class="login-link">Sign Up</a></span>
+                     <app-signup #SignupComponent></app-signup>
+                     <!-- <button class="btn" (click)="openModal()">Apply Now</button>
+                        <app-login *ngIf="showModal" (close)="closeModal()"></app-login> -->
+                  </div>
+               </div>
+            </nav>
+            <div class="body">
+               <div *ngIf="!isServiceRoute" class="body-container">
+                  <div class="bottom-container">
+                     <ngb-carousel [interval]="2000" [pauseOnHover]="false" class="custom-carousel">
+                     <ng-template ngbSlide class="custom-carousel">
+                        <img src="https://res.cloudinary.com/dhdpgmubv/image/upload/v1719492925/WhatsApp_Image_2024-06-27_at_6.24.20_PM_lf2lim.jpg" alt="First slide">
+                     </ng-template>
+                     <ng-template ngbSlide class="custom-carousel">
+                        <img src="https://res.cloudinary.com/dhdpgmubv/image/upload/v1642867371/samples/landscapes/nature-mountains.jpg" alt="Second slide">
+                     </ng-template>
+                     <ng-template ngbSlide class="custom-carousel">
+                        <img src="https://res.cloudinary.com/dhdpgmubv/image/upload/v1642867367/samples/landscapes/beach-boat.jpg" alt="Third slide">
+                     </ng-template>
+                     </ngb-carousel>
+                     <div class="card">
+                        <h1>salon</h1>
+                        <p>Get nearest</p>
+                        <div class="slide-card">
+                           <p>Salon Details</p>
                         </div>
-                    </div>
-                </nav>
-                <div class="body">
-                    <div *ngIf="isStaticVisible" class="body-container">
-                        <div class="bottom-container">
-                            <ngb-carousel [interval]="2000" [pauseOnHover]="false" class="custom-carousel">
-                                <ng-template ngbSlide class="custom-carousel">
-                                    <img src="https://res.cloudinary.com/dhdpgmubv/image/upload/v1719492925/WhatsApp_Image_2024-06-27_at_6.24.20_PM_lf2lim.jpg" alt="First slide" />
-                                </ng-template>
-                                <ng-template ngbSlide class="custom-carousel">
-                                    <img src="https://res.cloudinary.com/dhdpgmubv/image/upload/v1642867371/samples/landscapes/nature-mountains.jpg" alt="Second slide" />
-                                </ng-template>
-                                <ng-template ngbSlide class="custom-carousel">
-                                    <img src="https://res.cloudinary.com/dhdpgmubv/image/upload/v1642867367/samples/landscapes/beach-boat.jpg" alt="Third slide" />
-                                </ng-template>
-                            </ngb-carousel>
-                            <div class="card">
-                                <h1>salon</h1>
-                                <p>Get nearest</p>
-                                <div class="slide-card">
-                                    <p>Salon Details</p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <h1>salon</h1>
-                                <p>Get nearest</p>
-                                <div class="slide-card">
-                                    <p>Salon Details</p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <h1>salon</h1>
-                                <p>Get nearest</p>
-                                <div class="slide-card">
-                                    <p>Salon Details</p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <h1>salon</h1>
-                                <p>Get nearest</p>
-                                <div class="slide-card">
-                                    <p>Salon Details</p>
-                                </div>
-                            </div>
+                     </div>
+                     <div class="card">
+                        <h1>salon</h1>
+                        <p>Get nearest</p>
+                        <div class="slide-card">
+                           <p>Salon Details</p>
                         </div>
-                    </div>
-                    <div *ngIf="!isStaticVisible">
-                        <router-outlet></router-outlet>
-                    </div>
-                </div>
-
-                <!-- <app-select-category></app-select-category> -->
-                <!-- <router-outlet></router-outlet>
-<app-freelancer-contact-details></app-freelancer-contact-details> -->
-                <!-- <app-book-slot></app-book-slot> -->
-                <!-- <app-choose-lister></app-choose-lister> -->
-            </body>
-        </html>
-    </body>
-</html>
+                     </div>
+                     <div class="card">
+                        <h1>salon</h1>
+                        <p>Get nearest</p>
+                        <div class="slide-card">
+                           <p>Salon Details</p>
+                        </div>
+                     </div>
+                     <div class="card">
+                        <h1>salon</h1>
+                        <p>Get nearest</p>
+                        <div class="slide-card">
+                           <p>Salon Details</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div *ngIf=" isBSRoute">
+                  <router-outlet></router-outlet>
+               </div>
+               <div *ngIf=" isBCFRoute">
+                  <router-outlet></router-outlet>
+               </div>
+               <div *ngIf=" isBDFRoute">
+                  <router-outlet></router-outlet>
+               </div>
+               <div *ngIf="isBPRoute">
+                  <router-outlet></router-outlet>
+               </div>
+               <div *ngIf="isBTFRoute">
+                  <router-outlet></router-outlet>
+               </div>
+               <div *ngIf="isCLRoute">
+                  <router-outlet></router-outlet>
+               </div>
+               <div *ngIf="isFARoute">
+                  <router-outlet></router-outlet>
+               </div>
+               <div *ngIf="isFCDRoute">
+                  <router-outlet></router-outlet>
+               </div>
+               <div *ngIf="isFSORoute">
+                  <router-outlet></router-outlet>
+               </div>
+               <div *ngIf="isFLRoute">
+                  <router-outlet></router-outlet>
+               </div>
+               <div *ngIf="isLTRoute">
+                  <router-outlet></router-outlet>
+               </div>
+               <div *ngIf="isLOGINRoute">
+                  <router-outlet></router-outlet>
+               </div>
+               <div *ngIf="isOTPPRoute">
+                  <router-outlet></router-outlet>
+               </div>
+               <div *ngIf="isSCRoute">
+                  <router-outlet></router-outlet>
+               </div>
+               <div *ngIf="isSIGNUPRoute">
+                  <router-outlet></router-outlet>
+               </div>
+            </div>
+            <!-- <app-select-category></app-select-category> -->
+            <!-- <app-book-slot></app-book-slot> -->
+            <!-- <app-select-category></app-select-category> -->
+            <!-- <router-outlet></router-outlet>
+               <app-freelancer-contact-details></app-freelancer-contact-details> -->
+            <!-- <app-book-slot></app-book-slot> -->
+         </body>
+      </html>
