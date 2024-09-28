@@ -1,50 +1,304 @@
-.bottom-container {
-    display: flex;
-    justify-content: start;
-    gap: 15px;
-    padding: 20px;
+/* General styles for all devices */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.salon-container {
+  /* max-width: 1200px; */
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.salon-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filter-sort {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-sort select {
+  padding: 10px 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: var(--color-bg-violet-200);
+}
+/* recommended card */
+.recommended-salon-container {
+  /* max-width: 1200px; */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.recommended-carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.recommended-salon-cards {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+.recommended-salon-card {
+  flex: 0 0 31%; /* Show 3 cards per view */
+  margin: 15px;
+  border-radius: 10px;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
+  position: relative; /* Needed for recommended label */
+}
+
+.recommended-salon-image {
+  width: 100%;
+  border-radius: 10px;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* Recommended Label */
+.recommended-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: white;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 1;
+}
+
+.recommended-carousel-arrow {
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 15px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.recommended-carousel-arrow.recommended-left {
+  position: absolute;
+  left: 18px;
+}
+
+.recommended-carousel-arrow.recommended-right {
+  position: absolute;
+  right: 25px;
+}
+
+.recommended-salon-info h2 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.recommended-rating {
+  font-size: 16px;
+}
+
+.recommended-rating-star {
+  background-color: #6b46c1;
+  color: #fff;
+  padding: 3px 6px;
+  border-radius: 5px;
+}
+
+.recommended-discount {
+  margin-top: 10px;
+  padding: 8px;
+  background-color: #6b46c1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+/* listing cards */
+.salon-card {
+  display: flex;
+  margin-top: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+  gap: 20px;
+}
+
+.salon-image {
+  width: 35%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.salon-info {
+  flex: 1;
+}
+
+.salon-info h2 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.rating {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.rating-star {
+  background-color: #6b46c1;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.service-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.service-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.service-action {
+  text-align: right;
+  display: flex;
+}
+
+.service-action span {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.service-action button {
+  padding: 0px 0px;
+  background-color: #6b46c1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 80px;
+  height: 40px;
+  margin-top: 7px;
+  margin-left: 5px;
+}
+
+/* Responsive styles for tablets and smaller devices */
+@media (max-width: 1024px) {
+  .recommended-salon-card {
+    flex: 0 0 31%; /* Show 3 cards per view */
+    margin: 10px;
   }
-  
-  .custom-carousel {
-    width: 700px;
-    height: 250px;
-    margin: auto; /* Center the carousel */
+  .salon-image {
+    margin-bottom: 20px;
   }
-  
-  .custom-carousel img {
+
+  .filter-sort {
+    flex-direction: row;
+    gap: 10px;
+  }
+}
+@media (max-width: 992px) {
+  .recommended-salon-card {
+    flex: 0 0 48%; /* Show 3 cards per view */
+    margin: 10px;
+  }
+}
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+  .salon-container {
+    padding: 15px;
+  }
+
+  .salon-header {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+
+  .salon-card {
+    flex-direction: column;
+    /* align-items: center;
+    text-align: center; */
+  }
+
+  .salon-image {
     width: 100%;
-    height: 250px;
-    background-size: cover;
-    border-radius: 20px;
-    object-fit: cover; /* Ensures the image fits within the container */
   }
-  
-  .card {
-    background-image: url('https://res.cloudinary.com/dhdpgmubv/image/upload/v1642867359/samples/people/kitchen-bar.jpg');
-    width: 170px;
-    height: 250px;
-    color: white;
-    padding: 10px;
-    background-size: cover;
+
+  .salon-info h2 {
+    font-size: 1.4rem;
   }
-  
-  .slide-card {
-    position: absolute;
-    top: 100%;
-    left: 0;
+
+  .service-item {
+    /* flex-direction: column; */
+    gap: 10px;
+    align-items: normal;
+  }
+
+  .service-action {
+    margin-top: 10px;
+  }
+  .recommended-salon-card {
+    flex: 0 0 47%; /* Show 2 cards per view */
+    margin: 10px;
+  }
+
+  .recommended-salon-info h2 {
+    font-size: 17px;
+  }
+}
+/* Small devices (phones) */
+@media (max-width: 576px) {
+  .recommended-salon-card {
+    flex: 0 0 100%; /* Show 1 card per view */
+    margin: 10px 0;
+  }
+
+  .recommended-carousel-arrow {
+    font-size: 20px; /* Smaller arrow size */
+    padding: 5px;
+  }
+
+  .recommended-salon-info h2 {
+    font-size: 16px;
+  }
+
+  .recommended-salon-image {
+    height: 150px; /* Smaller image height */
+  }
+}
+/* For extra small screens and devices */
+@media (max-width: 480px) {
+  .salon-header h1 {
+    font-size: 1.5rem;
+    text-align: center;
     width: 100%;
-    height: 100px;
-    background-color: #9d1de0;
-    color: white;
-    border-radius: 0 0 10px 10px;
-    opacity: 0;
-    transform: translateY(-100px);
-    transition: opacity 0.3s, transform 0.3s;
-    padding: 10px;
+    margin-bottom: 15px;
   }
-  
-  .card:hover .slide-card {
-    opacity: 1;
-    transform: translateY(0);
+.service-action{
+  flex-direction: column;
+}
+  .salon-info h2 {
+    font-size: 1.3rem;
   }
-  
+}

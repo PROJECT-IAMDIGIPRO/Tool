@@ -1,54 +1,78 @@
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Bootstrap JS and Popper.js -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    </head>
-    
-    <div class="bottom-container">
-    <ngb-carousel [interval]="2000" [pauseOnHover]="false" class="custom-carousel">
-      <ng-template ngbSlide class="custom-carousel">
-        <img src="https://res.cloudinary.com/dhdpgmubv/image/upload/v1719492925/WhatsApp_Image_2024-06-27_at_6.24.20_PM_lf2lim.jpg" alt="First slide">
-      </ng-template>
-      <ng-template ngbSlide class="custom-carousel">
-        <img src="https://res.cloudinary.com/dhdpgmubv/image/upload/v1642867371/samples/landscapes/nature-mountains.jpg" alt="Second slide">
-      </ng-template>
-      <ng-template ngbSlide class="custom-carousel">
-        <img src="https://res.cloudinary.com/dhdpgmubv/image/upload/v1642867367/samples/landscapes/beach-boat.jpg" alt="Third slide">
-      </ng-template>
-    </ngb-carousel>
-    <div class="card">
-      <h1>salon</h1>
-      <p>Get nearest</p>
-      <div class="slide-card">
-        <p>Salon Details</p>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="salon-container">
+    <div class="salon-header">
+      <h1>Men’s Salon ({{ totalSlots }})</h1>
+      <div class="filter-sort">
+        <select>
+          <option value="recommended">Filters</option>
+          <option value="">Hair Style</option>
+          <option value="">Makeup</option>
+        </select>
+        <select [(ngModel)]="sortOption">
+          <option value="recommended">Sort by: Recommended</option>
+          <option value="price">Price</option>
+          <option value="distance">Distance</option>
+          <option value="rating">Rating</option>
+        </select>
       </div>
     </div>
-    <div class="card">
-      <h1>salon</h1>
-      <p>Get nearest</p>
-      <div class="slide-card">
-        <p>Salon Details</p>
+    <div class="recommended-carousel-container">
+      <button class="recommended-carousel-arrow recommended-left" (click)="prevSlide()"><fa-icon [icon]="faArrowLeft"></fa-icon></button>
+      
+      <div class="recommended-salon-cards">
+        <div *ngFor="let salon of visibleSalons" class="recommended-salon-card">
+          <!-- Recommended Label -->
+          <div class="recommended-label">Recommended</div>
+          <img [src]="salon.image" alt="Salon Image" class="recommended-salon-image">
+          <div class="recommended-salon-info">
+            <h2>{{ salon.name }}</h2>
+            <div class="recommended-rating">
+              <span class="recommended-rating-star"><fa-icon [icon]="faStar"></fa-icon>{{ salon.rating }}</span>
+              ({{ salon.reviews }} Reviews)
+            </div>
+            <p>{{ salon.address }}</p>
+            <!-- <button class="recommended-discount">Save Up to 25%</button> -->
+          </div>
+        </div>
+      </div>
+      
+      <button class="recommended-carousel-arrow recommended-right" (click)="nextSlide()"><fa-icon [icon]="faArrowRight"></fa-icon>
+
+      </button>
+    </div>
+    <!-- Dynamic Salon cards -->
+    <div *ngFor="let salon of salons" class="salon-card">
+      <img [src]="salon.image" alt="Salon Image" class="salon-image">
+      <div class="salon-info">
+        <h2>{{ salon.name }}</h2>
+        <div class="rating">
+          <span class="rating-star"><fa-icon [icon]="faStar"></fa-icon>{{ salon.rating }}</span>
+          ({{ salon.reviews }} Reviews)
+        </div>
+        <p>{{ salon.address }}</p>
+
+        <!-- Services for each salon -->
+        <div *ngFor="let service of salon.services" class="service-item">
+          <div class="service-info">
+            <h3>{{ service.name }}</h3>
+            <p>{{ service.description }}</p>
+          </div>
+          <div class="service-action">
+            <div class="d-flex flex-column">
+              <span>₹{{ service.price.toFixed(2) }}</span>
+              <span>{{ service.duration }} min</span>
+            </div>
+            <button>Book Slot</button>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="card">
-      <h1>salon</h1>
-      <p>Get nearest</p>
-      <div class="slide-card">
-        <p>Salon Details</p>
-      </div>
-    </div>
-    <div class="card">
-      <h1>salon</h1>
-      <p>Get nearest</p>
-      <div class="slide-card">
-        <p>Salon Details</p>
-      </div>
-    </div>
-    
-    </div>
-    
-    
+  </div>  
+</body>
+</html>
